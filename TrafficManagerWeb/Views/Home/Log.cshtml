@@ -1,0 +1,51 @@
+﻿@model IEnumerable<TrafficManagerWeb.Library.Entities.LogEntity>
+
+@{
+    ViewBag.Title = "Log";
+}
+
+<h2>Log</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LogDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LogSiteSource)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LogSiteRegion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LogMessage)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LogDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LogSiteSource)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LogSiteRegion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LogMessage)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LogId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LogId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LogId })
+        </td>
+    </tr>
+}
+
+</table>

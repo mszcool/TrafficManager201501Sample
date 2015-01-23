@@ -1,0 +1,63 @@
+﻿@model IEnumerable<TrafficManagerWeb.Library.Entities.ServiceDashboardEntity>
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h2>Dashboard</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RegionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeploymentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Online)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StatusMessage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastSuccessfulPing)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OfflineForMaintenance)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegionName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeploymentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Online)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StatusMessage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastSuccessfulPing)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OfflineForMaintenance)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

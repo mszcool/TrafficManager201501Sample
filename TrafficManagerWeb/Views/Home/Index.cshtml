@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Azure Traffic Manager Sample</h1>
+    <p class="lead">An end-2-end sample showing traffic manager and Azure SQL Active Geo-Replication in action.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Overview</h2>
+        <p>
+            This sample web application accesses a simple SQL Database and stores some service
+            uptime/availability data in Azure storage. The setup script deploys your web site in two data centers
+            and also sets up a Azure SQL DB Premium with Active Geo Replication. You can test failover scenarios
+            by simulating failures by calling '/trafficmanager/toggleonline' which will cause define
+            whether the site is online or offline. If offline a call to '/trafficmanager/ping' will result in an http 500
+            which leads Azure Traffic Manager to assume the site is not available.
+        </p>
+    </div>
+    <div class="col-md-8">
+        <h2>Setup of the Sample</h2>
+        <p>
+            The sample includes a PowerShell setup script which sets up the following infrastructure fully
+            automated for you:
+        </p>
+        <p style="font-family: Courier New">
+            yoursamplename.trafficmanager.net<br />
+            &nbsp;&nbsp;|- data center 1 deployment<br />
+            &nbsp;&nbsp;&nbsp;|- yoursampleweb1.azurewebsites.net<br />
+            &nbsp;&nbsp;&nbsp;|- Azure SQL DB P1 with active geo replication<br />
+            &nbsp;&nbsp;|- data center 2 deployment<br />
+            &nbsp;&nbsp;&nbsp;|- yoursampleweb2.azurewebsites.net failover site<br />
+            &nbsp;&nbsp;&nbsp;|- Azure SQL DB P1 replica with read-only mode<br />
+            &nbsp;&nbsp;|- data center 3 deployment<br />
+            &nbsp;&nbsp;&nbsp;|- yoursamplesorry.azurewebsites.net service degradation static site<br />
+        </p>
+        <p>
+            This version uses Service Bus Topics/Subscriptions to write into multiple service dashboard tables<br />
+            across multiple regions.
+        </p>
+    </div>
+</div>
