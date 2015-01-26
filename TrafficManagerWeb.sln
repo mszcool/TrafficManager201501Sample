@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficManagerWeb", "Traffi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{669E425E-894D-4C11-84D7-D9FA234DA4A0}"
 	ProjectSection(SolutionItems) = preProject
+		DeploySolution.ps1 = DeploySolution.ps1
+		DeploySolutionStandardLib.ps1 = DeploySolutionStandardLib.ps1
 		ServiceDegradation.html = ServiceDegradation.html
 		TrafficManagerDatabase.v1.sql = TrafficManagerDatabase.v1.sql
 	EndProjectSection
