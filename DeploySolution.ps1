@@ -77,4 +77,4 @@ StorageCreateAccountIfNotExitsAndGetKeys -storageAccountName $serviceDashboardSt
 #
 # Create the web site for the service degradation page
 # 
-New-AzureWebsite -Location $mainRegionName
+
