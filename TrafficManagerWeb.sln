@@ -8,12 +8,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{669E425E-894D-4C11-84D7-D9FA234DA4A0}"
 	ProjectSection(SolutionItems) = preProject
 		DeploySolution.ps1 = DeploySolution.ps1
-		DeploySolutionStandardLib.ps1 = DeploySolutionStandardLib.ps1
-		ServiceDegradation.html = ServiceDegradation.html
+		DeploySolutionStandardLib.psm1 = DeploySolutionStandardLib.psm1
+		DeployWebsitesStandardLib.psm1 = DeployWebsitesStandardLib.psm1
 		TrafficManagerDatabase.v1.sql = TrafficManagerDatabase.v1.sql
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficManagerWeb.Library", "TrafficManagerWeb.Library\TrafficManagerWeb.Library.csproj", "{B79DC987-6153-433B-AD46-413F1297A7E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficManagerDegradationWeb", "TrafficManagerDegradationWeb\TrafficManagerDegradationWeb.csproj", "{7AD1D2CC-3D20-4E21-82BD-99A293FCF1D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{B79DC987-6153-433B-AD46-413F1297A7E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B79DC987-6153-433B-AD46-413F1297A7E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B79DC987-6153-433B-AD46-413F1297A7E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AD1D2CC-3D20-4E21-82BD-99A293FCF1D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AD1D2CC-3D20-4E21-82BD-99A293FCF1D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AD1D2CC-3D20-4E21-82BD-99A293FCF1D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AD1D2CC-3D20-4E21-82BD-99A293FCF1D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
