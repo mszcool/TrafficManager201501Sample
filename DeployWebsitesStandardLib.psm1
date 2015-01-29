@@ -1,3 +1,6 @@
+#
+# Creates a website using the Azure Service Management API and publishes a Visual Studio Web Project to the web site
+#
 function WebsiteCreateAndPublishVsProject($websiteName, $deploymentSlot, $regionName, $vsProjectPath, $vsProjectConfiguration) 
 {
     Write-Host "Creating website $websiteName if it does not exist..."
@@ -23,6 +26,9 @@ function WebsiteCreateAndPublishVsProject($websiteName, $deploymentSlot, $region
 }
 
 
+#
+# Creates a web hosting plan with the defined SKU and number of workers if it does not exist, already
+#
 function WebsiteCreateHostingPlanIfNotExists($hostingPlanName, $resourceGroupName, $regionName, $sku, $workersizes, $numWorkers) 
 {
     Write-Host "Create Web Hosting plan if it does not exist..."
@@ -34,9 +40,12 @@ function WebsiteCreateHostingPlanIfNotExists($hostingPlanName, $resourceGroupNam
 }
 
 
-function WebsiteAssignToHostingPlan($websiteName, $hostingPlanName, $resourceGroupName)
+#
+# Assigns an existing website from one hosting plan to another
+#
+function WebsiteAssignToHostingPlan($websiteName, $hostingPlanName, $resourceGroupName, $originalResourceGroupName)
 {
-    Write-Host "Assigning website $websiteName to hosting plan $hostingPlanName..."    Switch-AzureMode -Name AzureResourceManager    $hostingPlanParam = @{ 'serverFarm' = $hostingPlanName }    Write-Host "- Getting azure resource for website..."    $mainSiteResource = Get-AzureResource -Name $websiteName `                                          -ResourceGroupName $resourceGroupName `                                          -ResourceType Microsoft.Web/sites `                                           -ApiVersion 2014-04-01 `                                          -ErrorAction Stop    
+    Write-Host "Assigning website $websiteName to hosting plan $hostingPlanName..."    Switch-AzureMode -Name AzureResourceManager    $hostingPlanParam = @{ 'serverFarm' = $hostingPlanName }    Write-Host "- Getting azure resource for website..."    $mainSiteResource = Get-AzureResource -Name $websiteName `                                          -ResourceGroupName $originalResourceGroupName `                                          -ResourceType Microsoft.Web/sites `                                           -ApiVersion 2014-04-01 `                                          -ErrorAction Stop    
     Write-Host "- Setting properties on azure resource for website..."
     $mainSiteResource = Set-AzureResource -Name $websiteName `
                                           -ResourceGroupName $resourceGroupName `                                          -ResourceType Microsoft.Web/sites `
